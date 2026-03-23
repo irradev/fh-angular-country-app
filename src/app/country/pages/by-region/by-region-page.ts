@@ -3,13 +3,8 @@ import { Search } from '../../components/search/search';
 import { CountryTableList } from '../../components/country-table-list/country-table-list';
 
 @Component({
-  selector: 'country-by-capital-page',
+  selector: 'country-by-region-page',
   imports: [Search, CountryTableList],
-  templateUrl: './by-capital-page.html',
+  templateUrl: './by-region-page.html',
 })
-export default class ByCapitalPage {
-
-  public onSearch(value: string) {
-    console.log(value);
-  }
-}
+export default class ByRegionPage { }
