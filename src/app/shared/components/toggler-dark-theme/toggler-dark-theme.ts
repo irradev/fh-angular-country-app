@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-toggler-dark-theme',
+  selector: 'shared-toggler-dark-theme',
   imports: [],
   templateUrl: './toggler-dark-theme.html',
 })

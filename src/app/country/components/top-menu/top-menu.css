@@ -1,0 +1,16 @@
+.active {
+    background-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+
+
+}
+
+.active::after {
+    content: '';
+    position: absolute;
+
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+}
