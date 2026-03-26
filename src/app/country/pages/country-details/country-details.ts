@@ -3,11 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { Country } from '../../services/country';
 import { NotFound } from '../../../shared/components/not-found/not-found';
-import { CountryContent } from './country-content/country-content';
+import { DetailsContent } from './details-content/details-content';
+import { DetailsSkeleton } from './details-skeleton/details-skeleton';
 
 @Component({
   selector: 'country-details',
-  imports: [NotFound, CountryContent],
+  imports: [NotFound, DetailsContent, DetailsSkeleton],
   templateUrl: './country-details.html',
 })
 export default class CountryDetails {

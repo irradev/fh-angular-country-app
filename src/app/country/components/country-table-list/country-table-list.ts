@@ -2,10 +2,11 @@ import { Component, computed, input } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { CountryModel } from '../../models/country-model';
 import { DecimalPipe } from '@angular/common';
+import { SkeletonList } from './skeleton-list/skeleton-list';
 
 @Component({
   selector: 'country-table-list',
-  imports: [RouterLink, DecimalPipe],
+  imports: [RouterLink, DecimalPipe, SkeletonList],
   templateUrl: './country-table-list.html',
 })
 export class CountryTableList {

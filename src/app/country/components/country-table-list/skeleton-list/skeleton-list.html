@@ -1,0 +1,13 @@
+<div class="flex w-full flex-col gap-4">
+    @for (item of items; track $index; let i = $index) {
+    <div class="flex items-center justify-between gap-2 w-full" [style.opacity]="2 / (i + 1)">
+        <div class="skeleton h-4 w-10"></div>
+        <div class="skeleton h-10 w-16"></div>
+        <div class="skeleton h-14 w-22"></div>
+        <div class="skeleton h-4 w-32"></div>
+        <div class="skeleton h-4 w-32"></div>
+        <div class="skeleton h-7 w-40"></div>
+        <div class="skeleton h-10 w-40"></div>
+    </div>
+    }
+</div>

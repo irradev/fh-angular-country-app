@@ -3,11 +3,11 @@ import { CountryModel } from '../../../models/country-model';
 import { DecimalPipe } from '@angular/common';
 
 @Component({
-  selector: 'country-content',
+  selector: 'details-content',
   imports: [DecimalPipe],
-  templateUrl: './country-content.html',
+  templateUrl: './details-content.html',
 })
-export class CountryContent {
+export class DetailsContent {
 
   public country = input.required<CountryModel>();
 

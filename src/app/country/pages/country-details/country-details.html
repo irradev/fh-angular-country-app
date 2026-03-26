@@ -1,9 +1,11 @@
-@if (countryResource.isLoading()) {
-<p class="alert alert-info">Cargando...</p>
-}
-@else if (countryResource.error() || !countryResource.hasValue()) {
-<shared-not-found [errorMessage]="countryResource.error()?.message ?? null" />
-}
-@else {
-<country-content [country]="countryResource.value()!" />
-}
+<div class="container">
+    @if (countryResource.isLoading()) {
+    <details-skeleton />
+    }
+    @else if (countryResource.error() || !countryResource.hasValue()) {
+    <shared-not-found [errorMessage]="countryResource.error()?.message ?? null" />
+    }
+    @else {
+    <details-content [country]="countryResource.value()!" />
+    }
+</div>

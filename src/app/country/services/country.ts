@@ -43,6 +43,7 @@ export class Country {
     return this.http.get<CountryRestResponse[]>(`${API_URL}/alpha/${normalizedQuery}`).pipe(
       map(CountryRestMapper.toModelList),
       map((countries) => countries.at(0) ?? null),
+      delay(2000),
       catchError((error) => {
         return throwError(() => new Error(`No se pudo encontrar un país con este código: ${code}`));
       })

@@ -16,7 +16,9 @@
 
             @if(isLoading()) {
             <tr>
-                <td colspan="7" class="text-center">Buscando países...</td>
+                <td colspan="7" class="text-center">
+                    <skeleton-list />
+                </td>
             </tr>
             } @else if(errorMessage()) {
             <tr>
