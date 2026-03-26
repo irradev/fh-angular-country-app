@@ -1,0 +1,58 @@
+<section class="mx-10">
+    <h3 class="text-3xl">{{ country().name }}</h3>
+    <hr>
+    <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="flex justify-center items-center p-4">
+            <figure class="diff aspect-16/9" tabindex="0">
+                <div class="diff-item-1" role="img" tabindex="0">
+                    <img [src]="country().flagSvg" [alt]="country().name" class="blur brightness-75">
+                </div>
+                <div class="diff-item-2" role="img">
+                    <img [src]="country().flagSvg" [alt]="country().name">
+                </div>
+                <div class="diff-resizer"></div>
+            </figure>
+        </div>
+        <div class="flex flex-col gap-2 p-4">
+            <div class="stats stats-vertical shadow-lg">
+                <div class="stat">
+                    <div class="stat-title">Población</div>
+                    <div class="stat-value">{{ country().population | number }}</div>
+                    <div class="stat-desc">Desde {{ currentYear() }}</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-title">Nombre</div>
+                    <div class="stat-value">{{ country().name }}</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-title">Capital</div>
+                    <div class="stat-value">{{ country().capital }}</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-title">Región</div>
+                    <div class="stat-value">{{ country().region }}</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-title">Subregión</div>
+                    <div class="stat-value">{{ country().subregion }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divider mt-6">
+        <h3 class="text-2xl">Fronteras</h3>
+    </div>
+    <div class="flex flex-wrap justify-center gap-2 mt-6">
+        @if (!country().borders || country().borders.length === 0) {
+        <span class="badge bg-primary">No tiene fronteras</span>
+        } @else {
+        @for (border of country().borders; track border) {
+        <span class="badge bg-primary">{{ border }}</span>
+        }
+        }
+    </div>
+</section>

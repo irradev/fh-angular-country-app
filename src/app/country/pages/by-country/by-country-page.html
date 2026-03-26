@@ -1,2 +1,4 @@
-<country-search [placeholder]="'Buscar por país'" />
-<country-table-list />
+<country-search [placeholder]="'Buscar por país'" (searchedValue)="query.set($event)" />
+
+<country-table-list [countries]="countryResource.hasValue() ? countryResource.value()! : []"
+    [errorMessage]="countryResource.error()?.message ?? null" [isLoading]="countryResource.isLoading()" />

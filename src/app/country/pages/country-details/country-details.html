@@ -1,1 +1,9 @@
-<p>country-details works!</p>,
+@if (countryResource.isLoading()) {
+<p class="alert alert-info">Cargando...</p>
+}
+@else if (countryResource.error() || !countryResource.hasValue()) {
+<shared-not-found [errorMessage]="countryResource.error()?.message ?? null" />
+}
+@else {
+<country-content [country]="countryResource.value()!" />
+}

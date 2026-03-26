@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject, resource, signal } from '@angular/core';
+import { Country } from '../../services/country';
 import { Search } from '../../components/search/search';
 import { CountryTableList } from '../../components/country-table-list/country-table-list';
+import type { CountryModel } from '../../models/country-model';
+import { firstValueFrom, of } from 'rxjs';
+import { rxResource } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'country-by-capital-page',
@@ -9,7 +13,54 @@ import { CountryTableList } from '../../components/country-table-list/country-ta
 })
 export default class ByCapitalPage {
 
-  public onSearch(value: string) {
-    console.log(value);
-  }
+  private countryService = inject(Country);
+
+  public query = signal<string>('');
+
+  // Resource con observables
+  public countryResource = rxResource({
+    params: () => ({ query: this.query() }),
+    stream: ({ params }) => {
+      if (!params.query) return of([]);
+
+      return this.countryService.searchByCapital(params.query);
+    }
+  });
+
+  // Resource con promesas
+  // public countryResource = resource({
+  //   params: () => ({ query: this.query() }),
+  //   loader: async ({ params }) => {
+  //     if (!params.query) return [];
+  //     return await firstValueFrom(
+  //       this.countryService.searchByCapital(params.query)
+  //     );
+  //   }
+
+  // });
+  // public isLoading = signal<boolean>(false);
+  // public isError = signal<string | null>(null);
+  // public countries = signal<CountryModel[]>([]);
+
+
+  // public onSearch(value: string) {
+
+  //   if (this.isLoading()) return;
+  //   this.isLoading.set(true);
+  //   this.isError.set(null);
+
+  //   this.countryService.searchByCapital(value).subscribe({
+  //     next: (response) => {
+  //       this.countries.set(response);
+  //     },
+  //     error: (error) => {
+  //       this.isError.set(error.message);
+  //       this.countries.set([]);
+  //       this.isLoading.set(false);
+  //     },
+  //     complete: () => {
+  //       this.isLoading.set(false);
+  //     }
+  //   });
+  // }
 }
