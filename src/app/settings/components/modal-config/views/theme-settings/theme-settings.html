@@ -1,6 +1,4 @@
-<h3 class="text-lg font-bold">Theme Settings</h3>
+<h3 class="text-lg font-bold flex items-center gap-2"> <icon-theme [size]="28" /> Theme Settings
+</h3>
 <p class="py-4">Configura el tema de la aplicación</p>
-<div class="modal-action">
-    <button class="btn btn-primary" (click)="onAccept()">Accept</button>
-    <button class="btn btn-error" (click)="onCancel()">Cancel</button>
-</div>
+<modal-actions (accept)="accept()" (cancel)="cancel()" />

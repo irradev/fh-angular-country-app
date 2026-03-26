@@ -3,8 +3,8 @@ import { Injectable, signal } from "@angular/core";
 @Injectable({ providedIn: 'root' })
 export class DelayService {
 
-    private delay = signal<number>(0);
-    private isActive = signal<boolean>(false);
+    private delay = signal<number>(500);
+    private isActive = signal<boolean>(true);
     public delay$ = this.delay.asReadonly();
     public isActive$ = this.isActive.asReadonly();
 

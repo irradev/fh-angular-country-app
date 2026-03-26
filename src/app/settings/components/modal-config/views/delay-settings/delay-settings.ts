@@ -1,5 +1,7 @@
 import { Component, inject, output, signal } from '@angular/core';
 import { DelayService } from '../../../../services/delay-service';
+import { IconDelay } from "../../../icons/icon-delay";
+import { ModalActions } from '../../components/modal-actions/modal-actions';
 
 interface DelayOptions {
   isActive: boolean;
@@ -8,7 +10,7 @@ interface DelayOptions {
 
 @Component({
   selector: 'view-delay-settings',
-  imports: [],
+  imports: [IconDelay, ModalActions],
   templateUrl: './delay-settings.html',
 })
 export class DelaySettings {
@@ -39,13 +41,13 @@ export class DelaySettings {
     }));
   }
 
-  public onAccept(): void {
+  public accept(): void {
     this.delayService.setDelay(this.delayOptions().delay);
     this.delayService.setIsActive(this.delayOptions().isActive);
     this.acceptDelay.emit();
   }
 
-  public onCancel(): void {
+  public cancel(): void {
     this.cancelDelay.emit();
   }
 
