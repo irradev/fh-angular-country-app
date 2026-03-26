@@ -1,0 +1,39 @@
+<div class="fab">
+    <!-- a focusable div with tabindex is necessary to work on all browsers. role="button" is necessary for accessibility -->
+    <div tabindex="0" role="button" class="btn btn-lg btn-circle btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M3 6.25A3.25 3.25 0 0 1 6.25 3h11.5A3.25 3.25 0 0 1 21 6.25v5.658a1.4 1.4 0 0 0-.988-.791a5 5 0 0 0-.512-.085V8.5h-15v9.25c0 .966.784 1.75 1.75 1.75h5.676l-.186.186A2.5 2.5 0 0 0 11.044 21H6.25A3.25 3.25 0 0 1 3 17.75zm12.994 5.683L14.28 10.22a.75.75 0 1 0-1.06 1.06l1.691 1.692a5.1 5.1 0 0 1 1.083-1.04M4.5 7h15v-.75a1.75 1.75 0 0 0-1.75-1.75H6.25A1.75 1.75 0 0 0 4.5 6.25zm6.28 4.28a.75.75 0 1 0-1.06-1.06l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 1 0 1.06-1.06l-2.47-2.47zm9.019.814c.353.077.44.507.185.762l-1.905 1.904a1.527 1.527 0 0 0 2.16 2.16l1.905-1.904c.255-.255.685-.168.762.185a4.075 4.075 0 0 1-5.57 4.622l-2.729 2.73a1.527 1.527 0 0 1-2.16-2.16l2.73-2.73a4.074 4.074 0 0 1 4.622-5.57" />
+        </svg>
+    </div>
+
+    <!-- close button should not be focusable so it can close the FAB when clicked. It's just a visual placeholder -->
+    <div class="fab-close">
+        Close <span class="btn btn-circle btn-lg btn-error">✕</span>
+    </div>
+
+    <!-- buttons that show up when FAB is open -->
+    <div>Delay Data <button (click)="openModal(settingsViews.Delay)" class="btn btn-lg btn-circle btn-info"><svg
+                xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path stroke-dasharray="18" d="M12 3c4.97 0 9 4.03 9 9">
+                        <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="18;0" />
+                        <animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate"
+                            values="0 12 12;360 12 12" />
+                    </path>
+                    <path stroke-dasharray="60"
+                        d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+                        opacity="0.3">
+                        <animate fill="freeze" attributeName="stroke-dashoffset" dur="1.2s" values="60;0" />
+                    </path>
+                </g>
+            </svg></button></div>
+
+    <div>Theme <button (click)="openModal(settingsViews.Theme)" class="btn btn-lg btn-circle btn-info"><svg
+                xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M12 22q-2.05 0-3.875-.788t-3.187-2.15t-2.15-3.187T2 12q0-2.075.813-3.9t2.2-3.175T8.25 2.788T12.2 2q2 0 3.775.688t3.113 1.9t2.125 2.875T22 11.05q0 2.875-1.75 4.413T16 17h-1.85q-.225 0-.312.125t-.088.275q0 .3.375.863t.375 1.287q0 1.25-.687 1.85T12 22m-4.425-9.425Q8 12.15 8 11.5t-.425-1.075T6.5 10t-1.075.425T5 11.5t.425 1.075T6.5 13t1.075-.425m3-4Q11 8.15 11 7.5t-.425-1.075T9.5 6t-1.075.425T8 7.5t.425 1.075T9.5 9t1.075-.425m5 0Q16 8.15 16 7.5t-.425-1.075T14.5 6t-1.075.425T13 7.5t.425 1.075T14.5 9t1.075-.425m3 4Q19 12.15 19 11.5t-.425-1.075T17.5 10t-1.075.425T16 11.5t.425 1.075T17.5 13t1.075-.425M12 20q.225 0 .363-.125t.137-.325q0-.35-.375-.825T11.75 17.3q0-1.05.725-1.675T14.25 15H16q1.65 0 2.825-.962T20 11.05q0-3.025-2.312-5.038T12.2 4Q8.8 4 6.4 6.325T4 12q0 3.325 2.338 5.663T12 20" />
+            </svg></button></div>
+</div>
+
+<settings-modal-config />

@@ -1,0 +1,11 @@
+<!-- Open the modal using ID.showModal() method -->
+<dialog #modalConfig class="modal">
+    <div class="modal-box">
+
+        @if (selectedView() === settingsViews.Delay) {
+        <view-delay-settings (acceptDelay)="closeModal()" (cancelDelay)="closeModal()" />
+        } @else if (selectedView() === settingsViews.Theme) {
+        <view-theme-settings (acceptTheme)="closeModal()" (cancelTheme)="closeModal()" />
+        }
+    </div>
+</dialog>

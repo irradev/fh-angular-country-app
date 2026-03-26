@@ -1,0 +1,20 @@
+<h3 class="text-lg font-bold">Delay Settings</h3>
+<p class="py-4">Configura el delay de las peticiones</p>
+
+<div class="flex flex-col gap-4 mt-4">
+    <label class="form-control flex justify-between items-center cursor-pointer w-full">
+        <span class="label-text ml-2">Enable delay</span>
+        <input type="checkbox" class="toggle toggle-xl checked:bg-success checked:border-success"
+            (change)="toggleDelay()" [checked]="delayOptions().isActive" />
+
+    </label>
+    <label class="form-control flex justify-between items-center cursor-pointer w-full">
+        <span class="label-text ml-2">Delay (milliseconds)</span>
+        <input type="number" class="input input-bordered w-24" (change)="setDelay(+delayInput.value)"
+            [value]="delayOptions().delay" [disabled]="!delayOptions().isActive" #delayInput />
+    </label>
+</div>
+<div class="modal-action mt-8">
+    <button class="btn btn-primary" (click)="onAccept()">Accept</button>
+    <button class="btn btn-error" (click)="onCancel()">Cancel</button>
+</div>
