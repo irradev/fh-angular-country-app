@@ -11,7 +11,7 @@ import { ThemeService } from '../../../../services/theme-service';
 })
 export class ThemeSettings {
 
-  private themeService = inject(ThemeService);
+  public themeService = inject(ThemeService);
 
   public acceptTheme = output<void>();
   public cancelTheme = output<void>();

@@ -1,6 +1,9 @@
 <section class="mx-10">
-    <h3 class="text-3xl">{{ country().name }}</h3>
-    <hr>
+    <div class="stat border-none">
+        <div class="stat-title">Nombre</div>
+        <div class="stat-value">{{ country().name }}</div>
+    </div>
+    <hr class="border-divider-100 opacity-50">
     <div class="grid grid-cols-1 md:grid-cols-2">
         <div class="flex justify-center items-center p-4">
             <figure class="diff aspect-16/9" tabindex="0">
@@ -21,10 +24,6 @@
                     <div class="stat-desc">Desde {{ currentYear() }}</div>
                 </div>
 
-                <div class="stat">
-                    <div class="stat-title">Nombre</div>
-                    <div class="stat-value">{{ country().name }}</div>
-                </div>
 
                 <div class="stat">
                     <div class="stat-title">Capital</div>
