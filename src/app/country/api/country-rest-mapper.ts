@@ -9,7 +9,7 @@ export class CountryRestMapper {
             flag: country.flag,
             flagSvg: country.flags.svg,
             name: country.translations['spa'].official || country.name.common,
-            capital: country.capital[0] || 'No tiene capital',
+            capital: country.capital?.join(', ') || 'No tiene capital',
             population: country.population,
             region: country.region,
             subregion: country.subregion,

@@ -1,0 +1,8 @@
+<div class="flex flex-wrap items-center gap-2">
+    @for (region of regions; track region) {
+    <button [class]="'btn w-24 ' + (activeRegion() === region ? 'btn-primary' : 'btn-soft')"
+        (click)="selectRegion(region)">
+        {{ region }}
+    </button>
+    }
+</div>

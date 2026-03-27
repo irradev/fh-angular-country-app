@@ -1,6 +1,7 @@
 <section class="flex flex-grow gap-2 mt-2">
     <div class="relative"> <input type="text" [placeholder]="placeholder()" class="input input-bordered mr-2 w-56"
-            autofocus #txtSearch (keyup.enter)="beforeOnSearchEmit(txtSearch.value)" />
+            autofocus #txtSearch (keyup.enter)="beforeOnSearchEmit(txtSearch.value)"
+            (keyup)="beforeOnSearchEmit(txtSearch.value)" [value]="initialValue()" />
         <button class="btn btn-primary" (click)="beforeOnSearchEmit(txtSearch.value)">Buscar</button>
     </div>
 </section>

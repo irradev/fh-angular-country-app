@@ -4,10 +4,11 @@ import { ModalConfig } from "../modal-config/modal-config";
 import { SettingsViews } from '../../enums/settings-views';
 import { IconDelay } from "../icons/icon-delay";
 import { IconTheme } from '../icons/icon-theme';
+import { IconInputType } from "../icons/icon-input-type";
 
 @Component({
   selector: 'settings-fab-dev-button',
-  imports: [ModalConfig, IconDelay, IconTheme],
+  imports: [ModalConfig, IconDelay, IconTheme, IconInputType],
   templateUrl: './fab-dev-button.html',
 })
 export class FabDevButton {

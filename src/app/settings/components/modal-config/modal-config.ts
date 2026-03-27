@@ -3,10 +3,11 @@ import { ModalService } from '../../services/modal-service';
 import { SettingsViews } from '../../enums/settings-views';
 import { DelaySettings } from "./views/delay-settings/delay-settings";
 import { ThemeSettings } from "./views/theme-settings/theme-settings";
+import { DebounceTimeSettings } from "./views/debounce-time-settings/debounce-time-settings";
 
 @Component({
   selector: 'settings-modal-config',
-  imports: [DelaySettings, ThemeSettings],
+  imports: [DelaySettings, ThemeSettings, DebounceTimeSettings],
   templateUrl: './modal-config.html',
 })
 export class ModalConfig {

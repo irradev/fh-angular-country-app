@@ -1,5 +1,6 @@
 <div class="container">
-    <country-search [placeholder]="'Buscar por país'" (searchedValue)="query.set($event)" />
+    <country-search [placeholder]="'Buscar por país'" [debounceTime]="debounceTime()" [initialValue]="query()"
+        (searchedValue)="query.set($event)" />
 
     <country-table-list [countries]="countryResource.hasValue() ? countryResource.value()! : []"
         [errorMessage]="countryResource.error()?.message ?? null" [isLoading]="countryResource.isLoading()" />

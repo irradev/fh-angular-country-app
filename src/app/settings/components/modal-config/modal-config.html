@@ -6,6 +6,12 @@
         <view-delay-settings (acceptDelay)="closeModal()" (cancelDelay)="closeModal()" />
         } @else if (selectedView() === settingsViews.Theme) {
         <view-theme-settings (acceptTheme)="closeModal()" (cancelTheme)="closeModal()" />
+        } @else if (selectedView() === settingsViews.DebounceTime) {
+        <view-debounce-time-settings (acceptDebounceTime)="closeModal()" (cancelDebounceTime)="closeModal()" />
         }
+        <!-- @else {
+        <p>No se encontro la vista para esta configuración</p>
+        <button class="btn btn-error" (click)="closeModal()">Cerrar</button>
+        } -->
     </div>
 </dialog>

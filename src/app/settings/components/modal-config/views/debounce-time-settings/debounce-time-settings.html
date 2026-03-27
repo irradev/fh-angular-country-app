@@ -1,0 +1,18 @@
+<div class="flex flex-col gap-4">
+    <div class="flex items-center gap-2">
+        <icon-input-type [size]="28" />
+        <h2 class="text-xl font-bold">Debounce Time</h2>
+    </div>
+    <p>Configura el tiempo que debe esperar el sistema antes de ejecutar la búsqueda por cada letra escrita.</p>
+
+    @if (!isValid()) {
+    <span class="alert alert-error text-sm">El valor debe ser mayor o igual a {{ MIN_DEBOUNCE_TIME
+        }}ms</span>
+    }
+    <div class="flex justify-between items-center gap-2">
+        <label for="debounceTime">Debounce Time:</label>
+        <input type="number" [value]="debounceTime()" (input)="setDebounceTime(+debounceTimeInput.value)"
+            class="input input-bordered w-20" min="300" #debounceTimeInput />
+    </div>
+    <modal-actions (accept)="accept()" (cancel)="cancel()" [isDisabledAccept]="!isValid()" />
+</div>

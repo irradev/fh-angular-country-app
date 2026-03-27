@@ -1,10 +1,12 @@
-import { Component, inject, resource, signal } from '@angular/core';
+import { Component, computed, inject, resource, signal } from '@angular/core';
 import { Country } from '../../services/country';
 import { Search } from '../../components/search/search';
 import { CountryTableList } from '../../components/country-table-list/country-table-list';
 import type { CountryModel } from '../../models/country-model';
 import { firstValueFrom, of } from 'rxjs';
 import { rxResource } from '@angular/core/rxjs-interop';
+import { DebounceTimeService } from '../../../settings/services/debounce-time-service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'country-by-capital-page',
@@ -13,15 +15,24 @@ import { rxResource } from '@angular/core/rxjs-interop';
 })
 export default class ByCapitalPage {
 
+  private router = inject(Router);
   private countryService = inject(Country);
+  private debounceTimeService = inject(DebounceTimeService);
+  private activatedRoute = inject(ActivatedRoute);
+  private queryParam = this.activatedRoute.snapshot.queryParamMap.get('query') ?? '';
 
-  public query = signal<string>('');
+  public query = signal<string>(this.queryParam);
+  public debounceTime = computed(() => this.debounceTimeService.getDebounceTime());
 
   // Resource con observables
   public countryResource = rxResource({
     params: () => ({ query: this.query() }),
     stream: ({ params }) => {
       if (!params.query) return of([]);
+
+      this.router.navigate(['/country/by-capital'], {
+        queryParams: { query: params.query },
+      });
 
       return this.countryService.searchByCapital(params.query);
     }
