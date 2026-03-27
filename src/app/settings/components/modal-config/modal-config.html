@@ -8,6 +8,8 @@
         <view-theme-settings (acceptTheme)="closeModal()" (cancelTheme)="closeModal()" />
         } @else if (selectedView() === settingsViews.DebounceTime) {
         <view-debounce-time-settings (acceptDebounceTime)="closeModal()" (cancelDebounceTime)="closeModal()" />
+        } @else if (selectedView() === settingsViews.CacheClean) {
+        <view-cache-clean-settings (acceptCacheClean)="closeModal()" (cancelCacheClean)="closeModal()" />
         }
         <!-- @else {
         <p>No se encontro la vista para esta configuración</p>

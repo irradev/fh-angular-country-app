@@ -13,20 +13,25 @@
     </div>
 
     <!-- buttons that show up when FAB is open -->
+    <div>Cache Clean
+        <button (click)="openModal(settingsViews.CacheClean)" class="btn btn-lg btn-circle btn-info">
+            <icon-cache-clean [size]="28" />
+        </button>
+    </div>
     <div>Delay Data
         <button (click)="openModal(settingsViews.Delay)" class="btn btn-lg btn-circle btn-info">
             <icon-delay [size]="26" />
         </button>
     </div>
 
-    <div>Theme
-        <button (click)="openModal(settingsViews.Theme)" class="btn btn-lg btn-circle btn-info">
-            <icon-theme [size]="28" />
-        </button>
-    </div>
     <div>Debounce Time
         <button (click)="openModal(settingsViews.DebounceTime)" class="btn btn-lg btn-circle btn-info">
             <icon-input-type [size]="28" />
+        </button>
+    </div>
+    <div>Theme
+        <button (click)="openModal(settingsViews.Theme)" class="btn btn-lg btn-circle btn-info">
+            <icon-theme [size]="28" />
         </button>
     </div>
 </div>

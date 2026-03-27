@@ -1,6 +1,7 @@
 
 export enum SettingsViews {
+    CacheClean = 'cacheClean',
     Delay = 'delay',
-    Theme = 'theme',
     DebounceTime = 'debounceTime',
+    Theme = 'theme',
 }

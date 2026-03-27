@@ -14,4 +14,8 @@ export class CacheService<T> {
     set(key: string, value: T): void {
         this.cache.set(key, value);
     }
+
+    clear(): void {
+        this.cache.clear();
+    }
 }
