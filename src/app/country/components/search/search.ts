@@ -10,7 +10,12 @@ export class Search {
   public placeholder = input<string>('Buscar');
   public searchedValue = output<string>();
   public beforeOnSearchEmit(value: string) {
-    const normalizedValue = value.trim().toLowerCase();
+    const normalizedValue = value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim()
+      .toLowerCase();
+
     if (normalizedValue.length === 0) return;
 
     this.searchedValue.emit(normalizedValue);
